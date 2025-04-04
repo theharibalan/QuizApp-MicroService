@@ -33,6 +33,7 @@ public class QuestionController {
         return questionService.addQuestion(questions);
     }
 
+    @GetMapping("/getQuestionsForQuiz")
     public ResponseEntity<List<Integer>> getQuestionsForQuiz(@RequestParam String categoryName, @RequestParam Integer numQuestions){
         return questionService.getQuestionsForQuiz(categoryName, numQuestions);
     }
@@ -43,7 +44,7 @@ public class QuestionController {
     }
 
     @PostMapping("getScore")
-    public ResponseEntity<Integer> getScore(List<Response> responses){
+    public ResponseEntity<Integer> getScore(@RequestBody List<Response> responses){
         return questionService.getScore(responses);
     }
 
